@@ -1,3 +1,12 @@
+# Feed Reader
+
+This application tests the features of the app itself using a testing framework, Jasmine and making use of the Red Green Refactor Cycle. 
+
+# How to Run the Application
+
+To run the application, simply clone/donwload the gitHub repository into your machine. Open index.html in your browser and the RSS Feeds will appear. Below the feeds, a Jasmine reporter appears with the test suites that have passed and failed (all tests should pass). 
+
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
