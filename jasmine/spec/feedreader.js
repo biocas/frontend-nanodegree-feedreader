@@ -60,8 +60,7 @@ $(function() {
         });
 
         it('entry element is defined in feed container', function(done) {
-            expect($('.feed').length).not.toBe(0);
-            expect($('.entry').length).not.toBe(0);
+            expect($('.feed .entry').length).not.toBe(0);
             done();
         });
     });
