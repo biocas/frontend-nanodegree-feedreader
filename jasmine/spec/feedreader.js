@@ -73,12 +73,16 @@ $(function() {
         var newFeed;
         //beforeEach handles the asynchronous function, so it is done before the test is run
         beforeEach(function(done) {
-            loadFeed(1, done);
-            oldFeed = $('.feed').html();
+            loadFeed(0, function(){
+               oldFeed = $('.feed').html(); 
+                loadFeed(1, function() {
+                    done(); 
+                });
+            });
+            
         });
 
         it('new feed is loaded when content changes', function(done) {
-            loadFeed(2);
             newFeed = $('.feed').html();
             expect(oldFeed).not.toEqual(newFeed);
             done();
