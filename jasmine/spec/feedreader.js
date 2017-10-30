@@ -31,6 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+        //the test loops throughthe allFeeds array to check for the URL
         it('each URL is defined', function(){
             allFeeds.forEach(function(feed){
                expect(feed.url).toBeDefined();
@@ -44,6 +45,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        //the test loops throughthe allFeeds array to check for the name
         it('each name is defined', function(){
             allFeeds.forEach(function(feed){
                 expect(feed.name).toBeDefined();
@@ -60,9 +62,9 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        // the class menu-hidden is responsible for toggling the menu visibility, so the class is toggled depending if the menu is hidden or not. the test verifies if the class exists, which means that the menu is hidden
         it('menu is hidden by default', function(){
             expect($('body').hasClass('menu-hidden')).toBe(true);
-            //or body to haveClass ----> to be TRUE
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -70,8 +72,13 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        //the button with the menu-icon-link class is responsible for toggling menu's visibility. When that button is clicked, the class menu-hidden is toggled, so the test validates the expectation that by clicking on the button that class does not exists. When clicked again, it exists again (toggling).
          it('menu visibility changes when clicked', function(){
-            
+            document.querySelector('.menu-icon-link').click();
+             expect($('body').hasClass('menu-hidden')).not.toBe(true);
+             
+             document.querySelector('.menu-icon-link').click();
+             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
