@@ -108,13 +108,21 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var oldFeed;
+        var newFeed; 
         //beforeEach handles the asynchronous function, so it is done before the test is run
         beforeEach(function(done){
-                loadFeed(0, done);     
+                loadFeed(1, done);
+                oldFeed = $('.feed').html();
+            console.log(oldFeed);
             });
         
-        it('new feed is loaded when content changes', function(){
-            
+        it('new feed is loaded when content changes', function(done){
+            loadFeed(2);
+            newFeed = $('.feed').html();
+            expect(oldFeed).not.toEqual(newFeed);
+            console.log(newFeed);
+            done();
         });
         
     });
