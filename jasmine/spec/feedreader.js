@@ -92,11 +92,12 @@ $(function() {
          */
         //beforeEach handles the asynchronous function, so it is done before the test is run
         beforeEach(function(done){
-            
-            done();
-        });
+                loadFeed(0, done);     
+            });
+        
         it('entry element is defined in feed container', function(done){
-            
+            expect($('.feed').length).not.toBe(0);
+            expect($('.entry').length).not.toBe(0);
             done();
         });
     });
